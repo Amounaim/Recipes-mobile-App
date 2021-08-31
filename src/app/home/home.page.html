@@ -1,0 +1,131 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Information Tiyle</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Expense Reason</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Expense Amount</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="danger">Clear</ion-button>
+          <ion-button>MODIFY</ion-button>
+      </ion-item>  
+ 
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>ion-item in a card, icon left, button right</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    
+    <ion-card-content>
+      This is content, without any paragraph or header tags,
+      within an ion-card-content element.
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>User Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-input type="text" placeholder="Votre Nom"></ion-input></ion-col>
+          <ion-col><ion-input type="text" placeholder="Prenom"></ion-input></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-header><ion-card-title>New Form</ion-card-title></ion-header>
+    
+          <ion-item>
+            <ion-label position="floating">Expense Reason</ion-label>
+            <ion-input type="text" #inputReason></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Expense Amount</ion-label>
+            <ion-input type="number" #inputAmount></ion-input>
+          </ion-item>
+          <div class="ion-margin-vertical ion-float-right" >
+            <ion-button fill="outline" color=danger (click)="inputReason.value=''; inputAmount.value='' ">
+              <ion-icon slot="start" name="close"></ion-icon>CLEAR
+            </ion-button>
+            <ion-button (click)="readConfirm(inputReason.value,inputAmount.value)">
+              <ion-icon slot="start" name="add"></ion-icon>Add Expense
+            </ion-button>
+          </div>
+    
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-list #expensesList *ngFor="let item of listLabel; let id = index">
+          <ion-item>
+            <ion-label>{{item}}</ion-label>
+          </ion-item>
+        </ion-list> 
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <p>Total Expenses : <span>{{total}}</span></p>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+</ion-content>
+
+
+
+
+
+
+
+<!-- <ion-content [fullscreen]="false">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <p><strong>{{ text }}</strong></p>
+    
+    <ion-button (click)="onChangeText()">Change text</ion-button>
+  </div>
+</ion-content> -->
+
